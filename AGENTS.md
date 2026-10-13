@@ -85,8 +85,8 @@ The project uses GitHub Flow.
 - Create a short-lived branch from the latest `main` for each change, named `<type>/<short-kebab-description>`, e.g. `feat/diagnosis-scoring` or `fix/stat-normalization`. Use the same types as commit messages.
 - Keep one branch to one purpose. Split unrelated changes into separate branches.
 - Run `pnpm verify` before every push.
-- Merge into `main` through a pull request after CI passes, using squash merge. Delete the branch after merging.
-- Only commit, push, or open pull requests when the user asks you to.
+- Merge into `main` through a pull request after CI passes (if CI exists), using squash merge. Delete the branch after merging. A human performs the merge.
+- For implementation tasks, agents commit, push, and open pull requests on their own by following `.cursor/rules/implementation-flow.mdc`.
 
 ### Commit messages
 
@@ -97,6 +97,16 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/) in English: 
 - Summary: imperative mood, lowercase, no trailing period, at most 72 characters, e.g. `feat(domain): add stat normalization`.
 - Explain why in the body when the reason is not obvious. Mark breaking changes with `!` or a `BREAKING CHANGE:` footer.
 - Pull request titles follow the same format, because squash merge uses the title as the commit message on `main`.
+
+### Pull requests
+
+1. Push with `git push -u origin <branch>`.
+2. Write the body in Japanese, since humans review it, with these sections:
+   - `## 概要`: what the change does and why.
+   - `## 変更点`: main changes as a bullet list.
+   - `## テスト`: what you ran and the result, e.g. `pnpm verify` passed.
+3. Write the body to a temporary file outside the repository and pass it with `--body-file`, because multi-line `--body` strings break easily in PowerShell:
+   `gh pr create --draft --base main --title "<conventional commit title>" --body-file <path>`
 
 ## Definition of done
 

@@ -27,7 +27,7 @@ alwaysApply: true
 
 - GitHub Flow: never commit directly to `main`. Work on `<type>/<short-kebab-description>` branches and merge via pull request with squash merge after CI passes.
 - Commit messages and PR titles follow Conventional Commits in English, e.g. `feat(domain): add stat normalization`.
-- Only commit, push, or open pull requests when the user asks you to. See the root `AGENTS.md` for details.
+- For implementation tasks, commit, push, and open pull requests on your own by following `implementation-flow.mdc`. See the root `AGENTS.md` for details.
 
 ## Language
 

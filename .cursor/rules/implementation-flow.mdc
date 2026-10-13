@@ -1,0 +1,65 @@
+---
+description: Standard flow for implementation tasks, from analysis to a ready pull request
+alwaysApply: true
+---
+
+# Implementation flow
+
+Follow this flow autonomously whenever you are asked to implement something.
+
+## When to skip
+
+Skip the entire flow and simply follow the user's instructions when either applies:
+
+- The change does not alter behavior (documentation, configuration, wording, etc.).
+- The user explicitly says the flow is not needed.
+
+The Git workflow rules in the root `AGENTS.md` still apply when the flow is skipped. For example, never commit directly to `main`.
+
+## 1. Analyze and investigate
+
+- Turn the request into detailed requirements and specifications.
+- Investigate existing code and ask the user questions as needed.
+- Present the list of files to change and an outline of the approach, then wait for the user's approval before implementing.
+
+## 2. Plan
+
+- Consider splitting the work into multiple pull requests based on its content and expected diff size (guideline: at most about 500 lines per pull request).
+- If you propose a split, wait for the user's approval.
+- With a split, start the next pull request only after the previous one is merged, on a new branch from the latest `main`.
+
+## 3. Create a working branch
+
+- If the working tree has uncommitted changes, stop and report to the user. Do not stash or discard them.
+- Fetch the latest `main` (`git switch main` and `git pull --ff-only`), then create and check out a branch named `<type>/<short-kebab-description>`.
+
+## 4. Write tests first (Red)
+
+- Write tests from the requirements before the implementation.
+- Add only empty functions and types first so the tests compile, then run the tests and confirm they fail on assertions, not on missing modules or type errors.
+
+## 5. Implement (Green) and refine
+
+- Write the minimum implementation that makes all tests pass.
+- Then refactor (including splitting files that exceed about 200 lines or mix concerns), add or update JSDoc, and update related documentation such as ADRs and `AGENTS.md`. Keep the tests passing.
+
+## 6. Verify and commit
+
+- Run `pnpm verify`. If it fails, fix the cause and rerun, up to 3 retries. If it still fails, stop and report to the user.
+- After it passes, commit with a Conventional Commits message.
+
+## 7. Open a draft pull request
+
+- Push the branch and create a draft pull request as described in "Pull requests" in the root `AGENTS.md`.
+
+## 8. Check CI and mark ready
+
+- If `.github/workflows/` does not exist, mark the pull request ready right away with `gh pr ready`.
+- Otherwise, watch the checks with `gh pr checks --watch` and run `gh pr ready` once all of them pass.
+- If a check fails because of your change, analyze the logs and try one fix and push. If it still fails, stop and report.
+- If a failure seems unrelated to your change (flaky tests, infrastructure, dependency installation, etc.), do not try to fix it. Rerun the failed jobs once with `gh run rerun <run-id> --failed`. If it fails again, stop and report.
+
+## Reporting and handoff
+
+- On success, report only the pull request URL. A human reviews and merges it.
+- When you stop partway, report the reason and the current state.
