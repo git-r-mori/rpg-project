@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: ja-JP
+reviews:
+  profile: chill
+  high_level_summary: true
+  poem: false
+  path_filters:
+    - '!pnpm-lock.yaml'
+  path_instructions:
+    - path: 'packages/domain/**'
+      instructions: |
+        - Must not depend on React, the AWS SDK, or `node:*`.
+        - Game values, classes, and skill effects must be decided by deterministic logic. Flag any randomness or time not passed in as an argument.
+        - Validate external input with Zod. No `any`.
+    - path: 'apps/web/**'
+      instructions: |
+        - Must not import `backend`. Import features only through `features/<name>/index.ts`.
+        - Keep components presentational; move logic into functions or hooks.
+        - UI text is Japanese. Flag secrets or API keys reaching the frontend.
+    - path: '**/*.{ts,tsx}'
+      instructions: |
+        - Every export needs an accurate English JSDoc (`@param`, `@returns`, `@throws` where relevant).
+        - Use `import type` for type-only imports.
+    - path: '.github/workflows/**'
+      instructions: |
+        - Third-party actions must be pinned to a full commit SHA with the version in a trailing comment.
+        - Keep `permissions` minimal and avoid `pull_request_target`.
+    - path: 'docs/**'
+      instructions: |
+        - Human-facing documents are written in Japanese.

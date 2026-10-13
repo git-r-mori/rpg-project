@@ -66,7 +66,7 @@ Every exported function, component, hook, constant, type, and schema must have a
 
 ## Commands
 
-Run everything from the repository root (`C:\Dev\rpg-project`).
+Run everything from the repository root.
 
 ```sh
 pnpm install       # install dependencies
@@ -122,6 +122,8 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/) in English: 
 - Let AI freely decide stats, classes, or skill effects.
 - Implement features out of scope for the initial release (conversational diagnosis, image generation, login, collection, battles, etc.).
 - Add unused abstractions or large dependencies such as state management libraries or game engines.
+- Reference GitHub Actions by tag. Pin them to a full commit SHA with the version in a trailing comment (e.g. `@<sha> # v7.0.1`).
+- Write local absolute paths or personal information in the repository. The repository is public.
 - Bump dependency versions without checking compatibility. For example, typescript-eslint supports TypeScript `<6.1` only, so TypeScript is pinned to `~6.0`. Check `engines` too: the local Node.js is 24.13.
 
 ## References

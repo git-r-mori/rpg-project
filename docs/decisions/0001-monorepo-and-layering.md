@@ -9,7 +9,7 @@
 
 ## 決定
 
-- リポジトリルートは `C:\Dev\rpg-project`。pnpm ワークスペースでモノレポを構成する。
+- リポジトリ全体を pnpm ワークスペースのモノレポとして構成する。
 - パッケージは `@rpg/` スコープ。現時点は `@rpg/domain`（`packages/domain`）と `@rpg/web`（`apps/web`）。backend・infra・e2e は必要になったフェーズで追加する。
 - 依存は一方向（web/backend → domain）。domain は React・AWS SDK・`node:*` に依存しない。ESLint の `no-restricted-imports` で強制する。
 - 機能単位で `features/<機能名>/` にまとめ、`index.ts` を公開 API とする。テストはソースの隣に置く。
