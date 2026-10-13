@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-parchment: #f4e4bc;
+  --color-ink: #2b1d0e;
+  --color-gold: #d4a937;
+  --color-night: #141a2e;
+  --font-display: 'Georgia', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+}
+
+body {
+  @apply bg-night text-parchment min-h-screen antialiased;
+}

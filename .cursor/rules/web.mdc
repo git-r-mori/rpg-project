@@ -1,0 +1,17 @@
+---
+description: Conventions for apps/web (React + Vite + Tailwind)
+globs: apps/web/**
+alwaysApply: false
+---
+
+# Web rules
+
+- Use function components with named exports (no default exports).
+- State uses `useState` / `useReducer` only. Do not add a state management library.
+- Do not write game rules or calculations; call `@rpg/domain`, and import it from the package root only.
+- Keep `src/pages/` thin. Put logic and components in `src/features/<name>/`.
+- Put generic UI in `src/ui/`.
+- Style with Tailwind utilities, using the color and font tokens defined in `@theme` in `src/index.css`.
+- Layouts must work at 375px wide. Go mobile-first and add `sm:` and larger breakpoints on top.
+- Give images `alt` text and give interactive elements accessible labels.
+- User-facing text is Japanese. Component JSDoc describes what is rendered; each prop has its own JSDoc on the props type.

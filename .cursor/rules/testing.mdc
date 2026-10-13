@@ -1,0 +1,13 @@
+---
+description: How to write tests
+globs: **/*.test.ts, **/*.test.tsx, e2e/**
+alwaysApply: false
+---
+
+# Testing rules
+
+- Unit tests use Vitest. Place `<target>.test.ts` next to the target.
+- `describe` names the function or module under test. `it` states the expected behavior in English, e.g. `it('rejects an empty name')`.
+- Do not depend on external APIs, AWS, the current time, or randomness. Inject them via arguments or mocks.
+- Besides the happy path, always test boundary values and rejection of invalid input.
+- Test the public behavior, not implementation details.

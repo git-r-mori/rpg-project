@@ -1,0 +1,15 @@
+---
+description: Conventions for packages/domain (pure TypeScript domain layer)
+globs: packages/domain/**
+alwaysApply: false
+---
+
+# Domain rules
+
+- Write pure functions. No dependency on React, the AWS SDK, `node:*`, or `fetch`.
+- Take randomness and the current time as arguments so the same input always yields the same output.
+- Put each feature in `src/features/<name>/`, export it from its `index.ts`, and re-export it from `src/index.ts`.
+- Define schemas with Zod and derive types with `z.infer`. Do not define a type and a schema separately.
+- Keep tunable data (questions, classes, skills) in `src/data/` without logic, typed with `satisfies`.
+- Put a `*.test.ts` next to every new piece of logic.
+- JSDoc on exported functions must state the valid input range, the output range, and any thrown errors.

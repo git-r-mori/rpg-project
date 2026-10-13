@@ -1,0 +1,54 @@
+---
+description: Project-wide principles and workflow
+alwaysApply: true
+---
+
+# Project core rules
+
+- Before starting, read the root `AGENTS.md` and the target package's `AGENTS.md`.
+- Always finish by running `pnpm verify` and fixing failures before declaring the work done.
+- Never report results of commands you did not run.
+- Respect the dependency direction (web/backend → domain). Do not disable or loosen the ESLint boundary rules.
+- Game values, classes, and skill effects are decided by deterministic logic in domain. AI writes prose only.
+- Keep secrets out of code, logs, and the frontend. Read them from environment variables.
+- Do not add large new dependencies.
+- Record design decisions as ADRs in `docs/decisions/NNNN-<slug>.md`.
+- TypeScript: `strict`. No `any`. Validate external input with Zod before treating it as typed.
+- Use `import type` for type-only imports.
+
+## Development principles
+
+- Split files by responsibility. One responsibility per file, named after it. Split before a file grows large (aim for at most 200 lines) or mixes concerns.
+- Implement only what the current requirement needs. No speculative options, layers, or extension points for future features.
+- Design for reuse and testability: small pure functions with explicit inputs and outputs, dependencies (time, randomness, I/O) passed as arguments, and logic kept out of components.
+- When the same logic appears a second time, look for an existing implementation and consider extracting it. Extract only duplicates with the same meaning, into the lowest layer all callers may depend on.
+
+## Git
+
+- GitHub Flow: never commit directly to `main`. Work on `<type>/<short-kebab-description>` branches and merge via pull request with squash merge after CI passes.
+- Commit messages and PR titles follow Conventional Commits in English, e.g. `feat(domain): add stat normalization`.
+- Only commit, push, or open pull requests when the user asks you to. See the root `AGENTS.md` for details.
+
+## Language
+
+- English for anything aimed at AI agents: `AGENTS.md`, `.cursor/rules`, JSDoc, code comments, test names, lint messages.
+- Japanese for anything aimed at humans: `README.md`, `docs/**` (including ADRs), UI text, `.env.example` comments.
+- Identifiers are always English.
+
+## JSDoc
+
+- Every exported function, component, hook, constant, type, and schema has an accurate English JSDoc.
+- Start with one sentence on what it does or represents. Add `@param` per parameter, `@returns` for non-void functions, and `@throws` when it can throw. Do not repeat TypeScript types.
+- Document component props on the props type, one comment per prop.
+- Update JSDoc whenever behavior changes. Do not narrate obvious code or record change history.
+
+```ts
+/**
+ * Builds a greeting message for the given name.
+ *
+ * @param name - Display name to greet. Surrounding whitespace is trimmed.
+ * @returns The greeting, e.g. `"Hello, World!"`.
+ * @throws {ZodError} When the trimmed name is empty or longer than 32 characters.
+ */
+export function greet(name: string): string {
+```
