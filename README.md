@@ -60,3 +60,9 @@ GitHub Flow を採用しています。詳しくは [ADR 0003](docs/decisions/00
 ルートの [AGENTS.md](AGENTS.md) に、構成・コマンド・完了の定義・禁止事項をまとめています。各パッケージの `AGENTS.md` と `.cursor/rules/` も参照してください。
 
 エージェント向けの文書（`AGENTS.md`、`.cursor/rules/`）、JSDoc、コードコメント、テスト名は英語で書きます。README や `docs/` など人間向けの文書と画面の文言は日本語です。詳しくは [ADR 0002](docs/decisions/0002-documentation-language-and-jsdoc.md) を参照してください。
+
+## ライセンス
+
+Copyright (c) 2026 git-r-mori. All rights reserved.
+
+このリポジトリは参照目的で公開しています。著作権者の書面による許可なく、コードの全部または一部を利用・複製・改変・再配布することはできません。詳しくは [LICENSE](LICENSE) と [ADR 0005](docs/decisions/0005-public-repository.md) を参照してください。

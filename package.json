@@ -2,6 +2,7 @@
   "name": "rpg-character-diagnosis",
   "version": "0.0.0",
   "private": true,
+  "license": "UNLICENSED",
   "type": "module",
   "packageManager": "pnpm@10.33.0",
   "engines": {
