@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 import { AboutPage } from '../pages/AboutPage';
+import { DiagnosisPage } from '../pages/DiagnosisPage';
 import { HomePage } from '../pages/HomePage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 import { Layout } from './Layout';
@@ -13,6 +14,7 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { path: '/', element: <HomePage /> },
+      { path: '/diagnosis', element: <DiagnosisPage /> },
       { path: '/about', element: <AboutPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],

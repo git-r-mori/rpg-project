@@ -17,7 +17,8 @@ Frontend built with React, Vite, Tailwind CSS v4, and React Router.
 
 - `src/app/`: router, layout, and the app root
 - `src/pages/`: one component per route. Keep them thin; put logic in features.
-- `src/features/<name>/`: components, hooks, and reducers per feature (added in phase 2)
+- `src/features/<name>/`: components, hooks, and reducers per feature
+  - `features/diagnosis`: the questionnaire and result screens. `diagnosisReducer` holds the answers, `diagnosisProgress` decides whether to show a question or the result, and `toCharacterView` resolves ids for display. These are pure and have tests; the components only render them.
 - `src/ui/`: feature-agnostic UI (frames, buttons, etc.)
 - `src/index.css`: Tailwind import and design tokens (`@theme`)
 
@@ -30,8 +31,11 @@ User-facing text is Japanese. Code, JSDoc, and comments are English.
 
 ## Verify
 
+Unit tests use Vitest for reducers and pure functions. There is no component rendering test setup; check screens in the browser.
+
 ```sh
 pnpm dev                          # http://localhost:5173
+pnpm --filter @rpg/web test
 pnpm --filter @rpg/web typecheck
 pnpm --filter @rpg/web build
 ```

@@ -11,11 +11,10 @@ A login-free web app that generates an RPG character (class, stats, skills, name
 
 ## Current phase
 
-Phase 1 (project setup and Hello World) is complete. CI (`.github/workflows/ci.yml`) runs `pnpm verify` on pull requests and pushes to `main`. Upcoming phases:
+Phase 1 (project setup) and phase 2 (diagnosis logic in `packages/domain` and screens in `apps/web`; answers are diagnosed locally in the browser) are complete. CI (`.github/workflows/ci.yml`) runs `pnpm verify` on pull requests and pushes to `main`. Upcoming phases:
 
-1. Phase 2: diagnosis logic (`packages/domain`) and screens (`apps/web`)
-2. Phase 3: backend (`backend/*`), AI narrative generation, share API
-3. Phase 4: AWS CDK (`infra/`), CD, E2E (`e2e/`), documentation
+1. Phase 3: backend (`backend/*`), AI narrative generation, share API
+2. Phase 4: AWS CDK (`infra/`), CD, E2E (`e2e/`), documentation
 
 Create directories that do not exist yet in the phase that needs them, and add them to `pnpm-workspace.yaml`.
 
