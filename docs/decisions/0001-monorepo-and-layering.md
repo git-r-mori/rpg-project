@@ -19,9 +19,9 @@
 
 ## バージョン選定
 
+各ライブラリのバージョンは `package.json` を正本とする。ここには、最新版を選ばなかった理由だけを残す。
+
 - TypeScript は `~6.0`。7.0 が公開済みだが、typescript-eslint 8.x の対応範囲が `<6.1` のため。
-- React 19.3、React Router 8.4、Vite 8.3、Tailwind CSS 4.3（`@tailwindcss/vite`）、Zod 4.6、Vitest 5.0、ESLint 10（flat config）。
-- Node.js は 24 系（`engines` と `.nvmrc` で指定）。
 
 ## 影響
 

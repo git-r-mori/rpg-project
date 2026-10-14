@@ -20,11 +20,7 @@
 
 ### コミット規約: Conventional Commits（英語）
 
-- 形式は `<type>(<任意の scope>): <要約>`。
-- type は `feat`、`fix`、`refactor`、`test`、`docs`、`chore`、`ci`、`build`、`perf`、`style`。
-- scope はパッケージや領域の名前（`domain`、`web`、`backend`、`infra`、`e2e` など）。
-- 要約は英語の命令形・小文字始まり・末尾にピリオドなし・72 文字以内。
-- 破壊的変更は `!` または `BREAKING CHANGE:` フッターで示す。
+- コミットメッセージは Conventional Commits の形式（`<type>(<任意の scope>): <要約>`）で、英語で書く。type・scope・要約の細則はルートの `AGENTS.md`（Commit messages）を正本とする。
 - squash マージではプルリクエストのタイトルが `main` のコミットメッセージになるため、タイトルも同じ形式にする。
 
 ## 検討した代替案

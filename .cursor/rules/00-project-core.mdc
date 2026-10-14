@@ -12,7 +12,7 @@ alwaysApply: true
 - Game values, classes, and skill effects are decided by deterministic logic in domain. AI writes prose only.
 - Keep secrets out of code, logs, and the frontend. Read them from environment variables.
 - Do not add large new dependencies.
-- Record design decisions as ADRs in `docs/decisions/NNNN-<slug>.md`.
+- Record design decisions as ADRs in `docs/decisions/NNNN-<slug>.md` only when they meet the criteria in "Architecture decision records" in the root `AGENTS.md`. ADRs record why; procedures and spec details live in their source of truth.
 - TypeScript: `strict`. No `any`. Validate external input with Zod before treating it as typed.
 - Use `import type` for type-only imports.
 
