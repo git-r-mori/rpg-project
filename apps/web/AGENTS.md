@@ -18,7 +18,7 @@ Frontend built with React, Vite, Tailwind CSS v4, and React Router.
 - `src/app/`: router, layout, and the app root
 - `src/pages/`: one component per route. Keep them thin; put logic in features.
 - `src/features/<name>/`: components, hooks, and reducers per feature
-  - `features/diagnosis`: the questionnaire and result screens. `diagnosisReducer` holds the answers, `diagnosisProgress` decides whether to show a question or the result, and `toCharacterView` resolves ids for display. These are pure and have tests; the components only render them.
+  - `features/diagnosis`: the questionnaire and result screens. `diagnosisReducer` holds the answers, `diagnosisProgress` decides whether to show a question or the result, and `toCharacterView` resolves ids for display, and `emptyOptionSlotCount` pads questions with fewer options so every question card has the same height. These are pure and have tests; the components only render them.
 - `src/ui/`: feature-agnostic UI (frames, buttons, etc.)
 - `src/index.css`: Tailwind import and design tokens (`@theme`)
 
