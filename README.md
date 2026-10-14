@@ -33,6 +33,7 @@ pnpm dev
 apps/web/          React + Vite + Tailwind CSS（@rpg/web）
 packages/domain/   型・Zod スキーマ・診断ロジック（@rpg/domain）
 docs/decisions/    設計判断の記録（ADR）
+docs/specs/        現在の仕様（診断の規則など）
 .github/workflows/ CI（プルリクエストと main への push で pnpm verify を実行）
 ```
 

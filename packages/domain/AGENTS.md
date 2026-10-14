@@ -27,7 +27,7 @@ Features:
 - `features/character`: schemas for stats, classes, skills, and diagnosed characters. `STAT_KEYS` is the single source of truth for stat keys.
 - `features/questionnaire`: schemas for questions and answers.
 - `features/diagnosis`: `diagnose(answers, data)` turns answers into a character. Each step (resolve options, sum effects, compute ranges, normalize stats, choose class, choose skills) is a separate pure function. Game data is passed in, not imported.
-  The diagnosis spec (stat range, class and skill selection rules) is in `docs/decisions/0006-diagnosis-spec-and-schema.md`.
+  The diagnosis spec (stat range, class and skill selection rules) is in `docs/specs/diagnosis.md`; update it when the rules change. The design decisions behind it are in `docs/decisions/0006-diagnosis-spec-and-schema.md`.
 
 ## Common changes
 

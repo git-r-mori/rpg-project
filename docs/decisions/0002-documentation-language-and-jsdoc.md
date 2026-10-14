@@ -20,10 +20,7 @@
 
 ### JSDoc
 
-- export するすべての関数・コンポーネント・hook・定数・型・スキーマに、英語で正確な JSDoc を書く。
-- 1 行目に「何をするか／何を表すか」を 1 文で書く。引数ごとに `@param`、戻り値があれば `@returns`、例外を投げうるなら `@throws` を書く。型は TypeScript に任せ、JSDoc では繰り返さない。
-- コンポーネントの props は props 型の各プロパティに JSDoc を書く。
-- 挙動を変えたら JSDoc も更新する。
+export するすべての関数・コンポーネント・hook・定数・型・スキーマに、英語で正確な JSDoc を書く。書き方の細則はルートの `AGENTS.md`（Documentation comments）を正本とする。
 
 ## 検討した代替案
 

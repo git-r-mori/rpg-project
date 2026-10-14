@@ -112,8 +112,27 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/) in English: 
 - `pnpm verify` passes.
 - New or changed logic has tests next to the source (`*.test.ts`).
 - New or changed exports have accurate JSDoc.
-- Changes involving a design decision add an ADR under `docs/decisions/` (written in Japanese).
+- Changes involving a design decision that meets the criteria in "Architecture decision records" add an ADR under `docs/decisions/` (written in Japanese).
 - Never report a test or command as passing unless you actually ran it.
+
+## Architecture decision records
+
+Write an ADR only for a decision that meets at least one of these criteria:
+
+1. It is costly to reverse (stored data format, share URL id scheme, infrastructure, license or visibility).
+2. Alternatives were compared and rejected, and someone may propose them again.
+3. It deliberately departs from common practice or imposes a constraint (a pinned version, AI never decides game values).
+
+Rule of thumb: write one if your future self or an agent would likely ask "why is it like this, and may I change it?"
+
+Do not write ADRs for:
+
+- Anything evident from the code or configuration.
+- Procedures and convention details. `AGENTS.md` and `.cursor/rules/` are the source of truth.
+- Spec details and game balance values. `docs/specs/`, the data, and JSDoc are the source of truth.
+- Minor library choices, refactoring, or balance tuning.
+
+An ADR records why: background, decision, rejected alternatives, and consequences. Link to the source of truth for how instead of copying it. Never delete or merge ADRs; supersede them with a new ADR. Edits that keep the decision unchanged, such as replacing duplicated details with a link, may be made in place. See ADR 0007.
 
 ## Do not
 
@@ -128,5 +147,6 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/) in English: 
 ## References
 
 - `docs/decisions/`: design decisions (ADRs, in Japanese). To reverse a past decision, supersede it with a new ADR.
+- `docs/specs/`: current specifications (in Japanese), updated as the behavior changes. e.g. `diagnosis.md` for the diagnosis rules.
 - Each package's `AGENTS.md`: package-specific responsibilities and change procedures.
 - `.cursor/rules/`: coding conventions per file type.
